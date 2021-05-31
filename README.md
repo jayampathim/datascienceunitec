@@ -160,9 +160,11 @@ services:
 After running the application you can visit `http://localhost:8080/swagger-ui.html`<br/>	
 
 ## Endpoints with Swagger
-
+<p align="center">
+  <img src="/endpoints_interface.png" width="350" title="hover text">
+</p>
 You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Application used Swagger for visualization of API endpoints.<br>
-
+![image](https://{url})
 ## Screenshots of Demo
   API endpoint<br\>
   ![image](https://cloud.githubusercontent.com/assets/9053854/24495974/fbf2e0cc-1547-11e7-846c-25b5fac7f6b1.png)
