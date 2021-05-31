@@ -34,11 +34,11 @@ To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Do
 ## Getting Started
 
 ```html
-The application configure PostgreSQL and Redis with Java Spring Boot.Redis is most popular tool to use for caching.<br/>
-It is widely usage in the web application development.<br/>
-the application uses Dockerfile and docker-compose.yml files to dockerize containers.<br/>
-Also Redis has been added with cache tag to docker-compose.yml file.<br/>
-Docker compose is a very useful tool to run more than one containers.
+* The application configure PostgreSQL and Redis with Java Spring Boot.Redis is most popular tool to use for caching.
+* It is widely usage in the web application development.
+* the application uses Dockerfile and docker-compose.yml files to dockerize containers
+* Also Redis has been added with cache tag to docker-compose.yml file.
+* Docker compose is a very useful tool to run more than one containers.
 
 ```
 
@@ -154,13 +154,13 @@ services:
 ```xml
 ## Build & Run Application
 
- Please follow the below steps to build and run the application.Docker Compose Build and Run<br/>
-  ● Go to the project directory and open the terminal from outside of the project directory.<br/>
-  ● Run the command 'mvn clean install -DskipTests' <br>
-  ● Run the command  'docker-compose build --no-cache'- Docker Compose Build <br/>
-  ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run <br/>
+ Please follow the below steps to build and run the application.Docker Compose Build and Run.
+  ● Go to the project directory and open the terminal from outside of the project directory.
+  ● Run the command 'mvn clean install -DskipTests'
+  ● Run the command  'docker-compose build --no-cache'- Docker Compose Build.
+  ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run.
 
-After running the application you can visit the enpoints at`http://localhost:8080/swagger-ui.html`<br/>	
+After running the application you can visit the enpoints at`http://localhost:8080/swagger-ui.html.
 ```
 
 ## Endpoints with Swagger
