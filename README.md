@@ -13,7 +13,7 @@ Context:
   - [**Demo**](#demo)
 
 
-## [Description]
+## Description
 
 ● This API facilitates to mange CRUD operations of cows.<br/>
 ● API has been implementd by using  Java SpringBoot REST service.<br/>
