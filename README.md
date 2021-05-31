@@ -101,65 +101,8 @@ public class RedisConfig {
 }
 ```
 
-
-## Spring Service
-
-Below Cache @Annotaions are used in the Spring Boot Cow Service Implementation  
-
-These are:
-
-* `@Cacheable`
-* `@CacheEvict`
-* `@Caching`
-* `@CachceConfig`
-	
-
-`package com.herd.services.impl;
-import java.util.*;
-import java.util.stream.Collectors;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.herd.models.Status;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import com.herd.models.Cow;
-import com.herd.repositories.CowRepository;
-import com.herd.services.CowService;
-
-@Service
-@CacheConfig(cacheNames = "cowCache")
-public class CowServiceImpl implements CowService {
-
-	@Autowired
-	private CowRepository cowRepository;
-	@Autowired
-	private RestTemplate restTemplate;
-
-	@Cacheable(cacheNames = "cows")
-	@Override
-	public List<Cow> getAll() {
-		waitSomeTime();
-		List<Cow> cows=this.cowRepository.findAll();
-		//List<Cow> str = new List<Cow>();
-		return cows.stream().map(cow -> {
-			Map<String, String> collarId = new HashMap<String, String>();
-			collarId.put("collarId",cow.getCollarId());
-			List<Status> statusList = this.getStatusListFromBackend(collarId);
-			return this.getReturnedCow(statusList,cow);
-		}).collect(Collectors.toList());
-	}
-
-```
-
-## Docker & Docker Compose
-
-
 Dockerfile:
-
-```
+```xml
 FROM openjdk:11
 ADD ./target/herd-management-service-0.0.1-SNAPSHOT.jar /usr/src/herd-management-service-0.0.1-SNAPSHOT.jar
 WORKDIR usr/src
@@ -168,6 +111,7 @@ ENTRYPOINT ["java","-jar", "herd-management-service-0.0.1-SNAPSHOT.jar"]
 
 Docker compose file: docker-compose.yml
 
+```yml
 version: '3'
 
 services:
@@ -208,11 +152,11 @@ services:
   ● Run the command  'docker-compose build --no-cache'- Docker Compose Build <br>
   ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run <br>
 
-After running the application you can visit `http://localhost:8080/swagger-ui.html`.	
+After running the application you can visit `http://localhost:8080/swagger-ui.html`<br>.	
 
 ## Endpoints with Swagger
 
-You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Application used Swagger for visualization of API endpoints.
+You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Application used Swagger for visualization of API endpoints.<br>
 
 ## Screenshots of Testing
 
