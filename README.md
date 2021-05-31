@@ -164,19 +164,13 @@ After running the application you can visit `http://localhost:8080/swagger-ui.ht
 You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Application used Swagger for visualization of API endpoints.<br>
 
 ## Screenshots of Demo
-![Screenshot](endpoints_interface.png)
-<div align="center">
-
-![Alt text](/endpoints_interface.png?raw=true "Optional Title")
   API endpoint<br\>
-  <a href="#">
-  	<img src="https://user-images.githubusercontent.com/3082942/120157212-df03ce80-c246-11eb-9bf2-dfa078e4598c.png">
-   </a>
+  ![image](https://cloud.githubusercontent.com/assets/9053854/24495974/fbf2e0cc-1547-11e7-846c-25b5fac7f6b1.png)
   Create a new cow<br\>
   	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png"
   Get all cows <br\>
   	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/getAllCows.png" alt="Spring Boot + Redis + PostgreSQL Caching">
   Update a cow <br\>
         <img src="https://github.com/jayampathim/datascienceunitec/blob/master/update_cow.png" alt="Spring Boot + Redis + PostgreSQL Caching">	
-</div>
+
 
