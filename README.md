@@ -151,9 +151,9 @@ services:
       - db
       - cache
 ```
-```xml
-## Build & Run Application
 
+## Build & Run Application
+```xml
  Please follow the below steps to build and run the application.Docker Compose Build and Run.
   ● Go to the project directory and open the terminal from outside of the project directory.
   ● Run the command 'mvn clean install -DskipTests'
@@ -163,7 +163,7 @@ services:
 After running the application you can visit the enpoints at`http://localhost:8080/swagger-ui.html.
 ```
 
-## Endpoints with Swagger
+## Demo (Endpoints with Swagger)
 API endpoint
 	![Endpoints](endpoints_interface.png)<br/>	
 Create a new cow
