@@ -17,7 +17,7 @@ Context:
 ## [Description]
 
 ● This API facilitates to mange CRUD operations of cows.<br/>
-● API has been implementd by Java SpringBoot REST service.<br/>
+● API has been implementd by using  Java SpringBoot REST service.<br/>
 ● Potgres is used as the persistence layer while Redis is used as a cache layer.<br/>
 
 ## Prerequisites
@@ -26,31 +26,38 @@ To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Do
 
 ● [Steps to Install Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)<br/>
 ● [Steps to Install Docker](https://docs.getting-starteddocker.com/install/) <br/>
-● It's not required to insrall PostgreSQL or Redis as services are run on Dcoker containers.<br/>
-● But important to have undersandig of how Redis and PostgreSQL.https://www.postgresql.org & https://redis.io<br/>
+● Mavenis used to build dependancy of the project.
+● It's not required to install PostgreSQL or Redis as services are run on Dcoker containers.<br/>
+● But important to have undersandig of how PostgreSQL & Redis works (https://www.postgresql.org & https://redis.io )<br/>
 
 
 ## Getting Started
 
-In this project, I used Redis for caching with Spring Boot.
-When you send any request to get all customers or customer by id, you will wait 3 seconds if Redis has no related data.
+In this project,Redis is used caching with Spring Boot.When you send any request to the backend it  will wait 3 seconds if Redis has no related data.
 
 
 ## Maven Dependencies
 
+Below dependencies are required to build and run the project.All dependencies are placed in the pom.xml.
 
-```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
-
 <dependency>
 	<groupId>redis.clients</groupId>
 	<artifactId>jedis</artifactId>
+</dependency>	
+<dependency>
+	<groupId>org.postgresql</groupId>
+	<artifactId>postgresql</artifactId>
+	<scope>runtime</scope>
 </dependency>
-		
-```
+	<dependency>
+	<groupId>io.springfox</groupId>
+	<artifactId>springfox-swagger-ui</artifactId>
+	<version>2.9.2</version>
+</dependency>
 
 ## Redis Configuration
 
@@ -97,8 +104,7 @@ public class RedisConfig {
 
 ## Spring Service
 
-Spring Boot Customer Service Implementation will be like below class.
-I used Spring Boot Cache @Annotaions for caching.
+Below Cache @Annotaions are used in the Spring Boot Cow Service Implementation  
 
 These are:
 
@@ -108,68 +114,44 @@ These are:
 * `@CachceConfig`
 	
 
-```java
+`package com.herd.services.impl;
+import java.util.*;
+import java.util.stream.Collectors;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.herd.models.Status;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import com.herd.models.Cow;
+import com.herd.repositories.CowRepository;
+import com.herd.services.CowService;
+
 @Service
-@CacheConfig(cacheNames = "customerCache")
-public class CustomerServiceImpl implements CustomerService {
+@CacheConfig(cacheNames = "cowCache")
+public class CowServiceImpl implements CowService {
 
 	@Autowired
-	private CustomerRepository customerRepository;
+	private CowRepository cowRepository;
+	@Autowired
+	private RestTemplate restTemplate;
 
-	@Cacheable(cacheNames = "customers")
+	@Cacheable(cacheNames = "cows")
 	@Override
-	public List<Customer> getAll() {
+	public List<Cow> getAll() {
 		waitSomeTime();
-		return this.customerRepository.findAll();
+		List<Cow> cows=this.cowRepository.findAll();
+		//List<Cow> str = new List<Cow>();
+		return cows.stream().map(cow -> {
+			Map<String, String> collarId = new HashMap<String, String>();
+			collarId.put("collarId",cow.getCollarId());
+			List<Status> statusList = this.getStatusListFromBackend(collarId);
+			return this.getReturnedCow(statusList,cow);
+		}).collect(Collectors.toList());
 	}
 
-	@CacheEvict(cacheNames = "customers", allEntries = true)
-	@Override
-	public Customer add(Customer customer) {
-		return this.customerRepository.save(customer);
-	}
-
-	@CacheEvict(cacheNames = "customers", allEntries = true)
-	@Override
-	public Customer update(Customer customer) {
-		Optional<Customer> optCustomer = this.customerRepository.findById(customer.getId());
-		if (!optCustomer.isPresent())
-			return null;
-		Customer repCustomer = optCustomer.get();
-		repCustomer.setName(customer.getName());
-		repCustomer.setContactName(customer.getContactName());
-		repCustomer.setAddress(customer.getAddress());
-		repCustomer.setCity(customer.getCity());
-		repCustomer.setPostalCode(customer.getPostalCode());
-		repCustomer.setCountry(customer.getCountry());
-		return this.customerRepository.save(repCustomer);
-	}
-
-	@Caching(evict = { @CacheEvict(cacheNames = "customer", key = "#id"),
-			@CacheEvict(cacheNames = "customers", allEntries = true) })
-	@Override
-	public void delete(long id) {
-		this.customerRepository.deleteById(id);
-	}
-
-	@Cacheable(cacheNames = "customer", key = "#id", unless = "#result == null")
-	@Override
-	public Customer getCustomerById(long id) {
-		waitSomeTime();
-		return this.customerRepository.findById(id).orElse(null);
-	}
-
-	private void waitSomeTime() {
-		System.out.println("Long Wait Begin");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Long Wait End");
-	}
-
-}
 ```
 
 ## Docker & Docker Compose
@@ -178,18 +160,14 @@ public class CustomerServiceImpl implements CustomerService {
 Dockerfile:
 
 ```
-FROM openjdk:8
-ADD ./target/spring-boot-redis-cache-0.0.1-SNAPSHOT.jar /usr/src/spring-boot-redis-cache-0.0.1-SNAPSHOT.jar
+FROM openjdk:11
+ADD ./target/herd-management-service-0.0.1-SNAPSHOT.jar /usr/src/herd-management-service-0.0.1-SNAPSHOT.jar
 WORKDIR usr/src
-ENTRYPOINT ["java","-jar", "spring-boot-redis-cache-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "herd-management-service-0.0.1-SNAPSHOT.jar"]
 ```
 
-Docker compose file:
+Docker compose file: docker-compose.yml
 
-
-docker-compose.yml
-
-```yml
 version: '3'
 
 services:
@@ -221,39 +199,23 @@ services:
     depends_on:
       - db
       - cache
-```
 
 ## Build & Run Application
 
-* Build Java Jar.
+ Please follow the below steps to build and run the application.Docker Compose Build and Run<br/>
+  ● Go to the project directory and open the terminal from outside of the project directory.<br/>
+  ● Run the command 'mvn clean install -DskipTests' <br>
+  ● Run the command  'docker-compose build --no-cache'- Docker Compose Build <br>
+  ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run <br>
 
-```shell
- $ mvn clean install
-```
-
-*  Docker Compose Build and Run
-
-```shell
-$ docker-compose build --no-cache
-$ docker-compose up --force-recreate
-
-```
-
-After running the application you can visit `http://localhost:8080`.	
+After running the application you can visit `http://localhost:8080/swagger-ui.html`.	
 
 ## Endpoints with Swagger
 
-
-You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.
-I used Swagger for visualization endpoints.
-
-
-![Endpoints](assets/endpoints.png)
-
+You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Application used Swagger for visualization of API endpoints.
 
 ## Screenshots of Testing
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=4yr4JLRK6MM"><img src="https://img.youtube.com/vi/4yr4JLRK6MM/0.jpg" alt="Spring Boot + Redis + PostgreSQL Caching"></a>
 </div>
 
