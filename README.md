@@ -161,13 +161,13 @@ After running the application you can visit the enpoints at`http://localhost:808
 ```
 ## Endpoints with Swagger
 API endpoint
-	![Endpoints](endpoints_interface.png)
+	![Endpoints](endpoints_interface.png)<br/>	
 Create a new cow
- 	![Endpoints](createCpw.png)
+ 	![Endpoints](createCow.png) <br/>	
 Get all cows 
-	![Endpoints](getAllCows.png)
+	![Endpoints](getAllCows.png) <br/>
 Update a cow
-	![Endpoints](update_cow.png)
+	![Endpoints](update_cow.png) <br/>
 	
 
 
