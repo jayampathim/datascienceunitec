@@ -166,6 +166,7 @@ You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Applica
 ## Screenshots of Demo
 ![Screenshot](endpoints_interface.png)
 <div align="center">
+![Alt text](/endpoints_interface.png?raw=true "Optional Title")
   API endpoint<br\>
   <a href="#">
   	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png">
