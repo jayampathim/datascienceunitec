@@ -34,12 +34,12 @@ To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Do
 ## Getting Started
 
 ```xml
-The application configure PostgreSQL and Redis with Java Spring Boot.Redis is most popular tool to use for caching. It is widely usage in the web application development.the application uses Dockerfile and docker-compose.yml files to dockerize containers.Also Redis has been added with cache tag to docker-compose.yml file.Docker compose is a very useful tool to run more than one containers.<br/>
+The application configure PostgreSQL and Redis with Java Spring Boot.Redis is most popular tool to use for caching.<br/>
+It is widely usage in the web application development.<br/>
+the application uses Dockerfile and docker-compose.yml files to dockerize containers.<br/>
+Also Redis has been added with cache tag to docker-compose.yml file.<br/>
+Docker compose is a very useful tool to run more than one containers.
 
-* PostgreSQL Database.
-* Redis as
-* API Endpoints for CRUD operations.
-* Dockerfile
 ```
 
 ## Maven Dependencies
