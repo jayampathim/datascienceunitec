@@ -164,7 +164,7 @@ After running the application you can visit `http://localhost:8080/swagger-ui.ht
 You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Application used Swagger for visualization of API endpoints.<br>
 
 ## Screenshots of Demo
-![image](https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png)
+![Screenshot](endpoints_interface.png)
 <div align="center">
   API endpoint<br\>
   <a href="#">
