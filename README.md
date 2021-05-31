@@ -1,6 +1,8 @@
 # Herd management API for Halter
 
 Context:
+
+  - [**Description**](#description)
   - [**Prerequisites**](#prerequisites)
   - [**Getting Started**](#getting-started)
   - [**Maven Dependencies**](#maven-dependencies)
@@ -11,12 +13,22 @@ Context:
   - [**Endpoints with Swagger**](#endpoints-with-swagger)
   - [**Demo**](#demo)
 
+
+## [Description]
+
+● This API facilitates to mange CRUD operations of cows.
+● API has been implementd by Java SpringBoot REST service.
+● Potgres is used as the persistence layer while Redis is used as a cache layer.
+
 ## Prerequisites
 
 To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Docker installed on your machine.
 
-* [Steps to Install Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Steps to Install Docker](https://docs.getting-starteddocker.com/install/)
+● [Steps to Install Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+● [Steps to Install Docker](https://docs.getting-starteddocker.com/install/)
+● It's not required to insrall PostgreSQL or Redis as services are run on Dcoker containers.
+● But important to have undersandig of how Redis and PostgreSQL.https://www.postgresql.org/ & https://redis.io/
+
 
 ## Getting Started
 
@@ -239,7 +251,7 @@ I used Swagger for visualization endpoints.
 ![Endpoints](assets/endpoints.png)
 
 
-## Demo
+## Screenshots of Testing
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=4yr4JLRK6MM"><img src="https://img.youtube.com/vi/4yr4JLRK6MM/0.jpg" alt="Spring Boot + Redis + PostgreSQL Caching"></a>
