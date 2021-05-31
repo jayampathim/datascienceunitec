@@ -16,18 +16,18 @@ Context:
 
 ## [Description]
 
-● This API facilitates to mange CRUD operations of cows.
-● API has been implementd by Java SpringBoot REST service.
-● Potgres is used as the persistence layer while Redis is used as a cache layer.
+● This API facilitates to mange CRUD operations of cows.<br/>
+● API has been implementd by Java SpringBoot REST service.<br/>
+● Potgres is used as the persistence layer while Redis is used as a cache layer.<br/>
 
 ## Prerequisites
 
-To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Docker installed on your machine.
+To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Docker installed on your machine.<br/>
 
-● [Steps to Install Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-● [Steps to Install Docker](https://docs.getting-starteddocker.com/install/)
-● It's not required to insrall PostgreSQL or Redis as services are run on Dcoker containers.
-● But important to have undersandig of how Redis and PostgreSQL.https://www.postgresql.org/ & https://redis.io/
+● [Steps to Install Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)<br/>
+● [Steps to Install Docker](https://docs.getting-starteddocker.com/install/) <br/>
+● It's not required to insrall PostgreSQL or Redis as services are run on Dcoker containers.<br/>
+● But important to have undersandig of how Redis and PostgreSQL.https://www.postgresql.org & https://redis.io<br/>
 
 
 ## Getting Started
