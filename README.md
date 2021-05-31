@@ -157,8 +157,8 @@ services:
   ● Run the command  'docker-compose build --no-cache'- Docker Compose Build <br/>
   ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run <br/>
 
-After running the application you can visit `http://localhost:8080/swagger-ui.html`<br/>	
-
+After running the application you can visit the enpoints at`http://localhost:8080/swagger-ui.html`<br/>	
+```
 ## Endpoints with Swagger
 ![Endpoints](endpoints_interface.png)
 <p align="center">
