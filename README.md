@@ -1,7 +1,7 @@
-# Herd management API
+# Herd management API for Halter
 
 Context:
-
+  - [**Prerequisites**](#prerequisites)
   - [**Getting Started**](#getting-started)
   - [**Maven Dependencies**](#maven-dependencies)
   - [**Redis Configuration**](#redis-configuration)
@@ -11,6 +11,12 @@ Context:
   - [**Endpoints with Swagger**](#endpoints-with-swagger)
   - [**Demo**](#demo)
 
+## Prerequisites
+
+To run Spring Boot based Account REST API it is prerequisite to have Java 8 & Docker installed on your machine.
+
+* [Steps to Install Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Steps to Install Docker](https://docs.getting-starteddocker.com/install/)
 
 ## Getting Started
 
