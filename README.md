@@ -160,6 +160,7 @@ services:
 After running the application you can visit `http://localhost:8080/swagger-ui.html`<br/>	
 
 ## Endpoints with Swagger
+![Endpoints](/endpoints_interface.png)
 <p align="center">
   <img src="/endpoints_interface.png" width="350" title="hover text">
 </p>
