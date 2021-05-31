@@ -167,9 +167,11 @@ You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Applica
 
 <div align="center">
   API endpoint<br\>
-  	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png" alt="Spring Boot + Redis + PostgreSQL Caching">
+  <a href="#">
+  	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png">
+   </a>
   Create a new cow<br\>
-  	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png" alt="Spring Boot + Redis + PostgreSQL Caching">
+  	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png"
   Get all cows <br\>
   	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/getAllCows.png" alt="Spring Boot + Redis + PostgreSQL Caching">
   Update a cow <br\>
