@@ -7,7 +7,6 @@ Context:
   - [**Getting Started**](#getting-started)
   - [**Maven Dependencies**](#maven-dependencies)
   - [**Redis Configuration**](#redis-configuration)
-  - [**Spring Service**](#spring-service)
   - [**Docker & Docker Compose**](#docker-docker-compose)
   - [**Build & Run Application**](#build-run-application)
   - [**Endpoints with Swagger**](#endpoints-with-swagger)
@@ -107,6 +106,7 @@ public class RedisConfig {
 
 }
 ```
+## Docker & Docker Compose
 
 Dockerfile:
 ```xml
