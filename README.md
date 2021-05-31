@@ -163,7 +163,7 @@ After running the application you can visit the enpoints at`http://localhost:808
 API endpoint
 	![Endpoints](endpoints_interface.png)
 Create a new cow
- 	![Endpoints](addCow.png)
+ 	![Endpoints](createCpw.png)
 Get all cows 
 	![Endpoints](getAllCows.png)
 Update a cow
