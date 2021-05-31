@@ -40,6 +40,7 @@ The application configure PostgreSQL and Redis with Java Spring Boot.Redis is mo
 * Redis as
 * API Endpoints for CRUD operations.
 * Dockerfile
+```
 
 ## Maven Dependencies
 ```xml
@@ -63,6 +64,7 @@ Below dependencies are required to build and run the project.All dependencies ar
 	<artifactId>springfox-swagger-ui</artifactId>
 	<version>2.9.2</version>
 </dependency>
+```
 
 ## Redis Configuration
 
@@ -148,7 +150,8 @@ services:
     depends_on:
       - db
       - cache
-
+```
+```xml
 ## Build & Run Application
 
  Please follow the below steps to build and run the application.Docker Compose Build and Run<br/>
@@ -159,6 +162,7 @@ services:
 
 After running the application you can visit the enpoints at`http://localhost:8080/swagger-ui.html`<br/>	
 ```
+
 ## Endpoints with Swagger
 API endpoint
 	![Endpoints](endpoints_interface.png)<br/>	
