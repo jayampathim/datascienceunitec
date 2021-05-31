@@ -166,10 +166,11 @@ You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Applica
 ## Screenshots of Demo
 ![Screenshot](endpoints_interface.png)
 <div align="center">
+
 ![Alt text](/endpoints_interface.png?raw=true "Optional Title")
   API endpoint<br\>
   <a href="#">
-  	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png">
+  	<img src="https://user-images.githubusercontent.com/3082942/120157212-df03ce80-c246-11eb-9bf2-dfa078e4598c.png">
    </a>
   Create a new cow<br\>
   	<img src="https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png"
