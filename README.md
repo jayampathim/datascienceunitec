@@ -166,5 +166,9 @@ You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Applica
 ## Screenshots of Testing
 
 <div align="center">
+x-special/nautilus-clipboard
+copy
+file:///home/anuradha/Pictures/UI_interface.png
+
 </div>
 
