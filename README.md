@@ -154,10 +154,10 @@ services:
  Please follow the below steps to build and run the application.Docker Compose Build and Run<br/>
   ● Go to the project directory and open the terminal from outside of the project directory.<br/>
   ● Run the command 'mvn clean install -DskipTests' <br>
-  ● Run the command  'docker-compose build --no-cache'- Docker Compose Build <br>
-  ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run <br>
+  ● Run the command  'docker-compose build --no-cache'- Docker Compose Build <br/>
+  ● Run the command  'docker-compose up --force-recreate'- Docker Compose Run <br/>
 
-After running the application you can visit `http://localhost:8080/swagger-ui.html`<br>.	
+After running the application you can visit `http://localhost:8080/swagger-ui.html`<br/>	
 
 ## Endpoints with Swagger
 
@@ -166,9 +166,13 @@ You can see the endpoint in `http://localhost:8080/swagger-ui.html` page.Applica
 ## Screenshots of Testing
 
 <div align="center">
-x-special/nautilus-clipboard
-copy
-file:///home/anuradha/Pictures/UI_interface.png
-
+  API endpoint<br\>
+  	https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png
+  Create a new cow<br\>
+  	https://github.com/jayampathim/datascienceunitec/blob/master/endpoints_interface.png
+  Get all cows <br\>
+  	https://github.com/jayampathim/datascienceunitec/blob/master/getAllCows.png
+  Update a cow <br\>
+  	https://github.com/jayampathim/datascienceunitec/blob/master/update_cow.png
 </div>
 
